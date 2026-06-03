@@ -1,18 +1,18 @@
 [submodule "GestSIS_Auth"]
 	path = GestSIS_Auth
-	url = git@github.com:Ph0tonic/GestSIS_Auth.git
+	url = git@github.com:GestSIS/GestSIS_Auth.git
 [submodule "GestSIS_API"]
 	path = GestSIS_API
-	url = git@github.com:Ph0tonic/GestSIS_API.git
+	url = git@github.com:GestSIS/GestSIS_API.git
 [submodule "GestSIS_APP"]
 	path = GestSIS_APP
-	url = git@github.com:Ph0tonic/GestSIS_APP.git
+	url = git@github.com:GestSIS/GestSIS_APP.git
 [submodule "GestSIS_Alarm"]
 	path = GestSIS_Alarm
-	url = git@github.com:Ph0tonic/GestSIS_Alarm.git
+	url = git@github.com:GestSIS/GestSIS_Alarm.git
 [submodule "GestSIS_Doc"]
 	path = GestSIS_Doc
-	url = git@github.com:Ph0tonic/GestSIS_Doc.git
+	url = git@github.com:GestSIS/GestSIS_Doc.git
 [submodule "GestSIS_Bug"]
 	path = GestSIS_Bug
-	url = git@github.com:Ph0tonic/GestSIS_Bug.git
+	url = git@github.com:GestSIS/GestSIS_Bug.git
