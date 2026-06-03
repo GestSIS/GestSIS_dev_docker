@@ -13,7 +13,7 @@ Environnement de développement Docker pour le projet GestSIS - Architecture mic
 
 1. **Cloner le projet**
 ```bash
-git clone git@github.com:Ph0tonic/GestSIS_dev_docker.git
+git clone git@github.com:GestSIS/GestSIS_dev_docker.git
 cd GestSIS_dev_docker
 ```
 
