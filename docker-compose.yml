@@ -97,7 +97,7 @@ services:
     networks:
       - gestsis
     command: >
-      sh -c "uv sync && uv run _scripts/init.py -f && uv run manage.py migrate && uv run manage.py loaddata sis && uv run manage.py runserver 0.0.0.0:8002"
+      sh -c "uv sync --locked && uv run _scripts/init.py -f && uv run manage.py migrate && uv run manage.py loaddata sis && uv run manage.py runserver 0.0.0.0:8002"
 
   db:
     image: mysql:8.1
@@ -111,8 +111,8 @@ services:
       retries: 5
     environment:
       MYSQL_DATABASE: gestsis
-      MYSQL_ROOT_PASSWORD: pwd  # Dev only — change in production
-      MYSQL_PASSWORD: pwd       # Dev only — change in production
+      MYSQL_ROOT_PASSWORD: pwd # Dev only — change in production
+      MYSQL_PASSWORD: pwd # Dev only — change in production
       MYSQL_USER: gestsis
       SERVICE_TAGS: dev
       SERVICE_NAME: mysql
