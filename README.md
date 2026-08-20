@@ -46,8 +46,13 @@ Le script d'initialisation va:
 | **Alarm** | http://localhost:8002 | Service d'alarmes Django           |
 | **Doc**   | http://localhost:8081 | Documentation Retype               |
 
-### Compte de test
-- **Email:** test@gmail.com
+### Comptes de test
+Principal:
+- **Email:** admin@gestsis.ch
+- **Mot de passe:** apptest
+
+Secondaire
+- **Email:** user@gestsis.ch
 - **Mot de passe:** apptest
 
 ---

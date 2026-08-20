@@ -70,7 +70,7 @@ make init   # clone les sous-modules, génère les clés RSA, copie les .env.doc
 make up     # docker compose up
 ```
 
-`init.sh` distribue la même paire de clés RSA à Auth (privée + publique), API et Alarm (publique) : Auth signe les JWT, API/Alarm les vérifient. Compte de test : `test@gmail.com` / `apptest`.
+`init.sh` distribue la même paire de clés RSA à Auth (privée + publique), API et Alarm (publique) : Auth signe les JWT, API/Alarm les vérifient. Compte de test : `admin@gestsis.ch` / `apptest`.
 
 ## Base de données
 
