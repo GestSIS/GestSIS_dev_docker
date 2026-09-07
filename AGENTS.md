@@ -13,9 +13,12 @@ Environnement de développement de GestSIS. Ce dépôt **n'est pas une applicati
 | Auth    | `gestsis-auth`  | `auth`          | 8001 | Laravel + JWT (RSA)            | [GestSIS_Auth/AGENTS.md](GestSIS_Auth/AGENTS.md)   |
 | Alarm   | `gestsis-alarm` | `alarm`         | 8002 | Django + DRF, gestion via `uv` | [GestSIS_Alarm/AGENTS.md](GestSIS_Alarm/AGENTS.md) |
 | Doc     | `gestsis-doc`   | `doc`           | 8081 | Retype                         | [GestSIS_Doc/README.md](GestSIS_Doc/README.md)     |
+| Mobile  | `gestsis-mobile`| — (compose propre, voir ci-dessous) | 8100 | Ionic Vue + Capacitor (Android) | [GestSIS_Mobile/AGENTS.md](GestSIS_Mobile/AGENTS.md) |
 | DB      | `gestsis-db`    | `db`            | 3306 | MySQL (partagée)               | —                                                  |
 
 Ce fichier ne fige volontairement **aucune version** (elles dérivent) : la source de vérité reste le `composer.json` / `pyproject.toml` / `package.json` de chaque sous-module. **Avant de coder dans un service, lis son `AGENTS.md` (ou son `README.md`)** — ils contiennent les conventions et versions spécifiques (ex. l'API suit les Laravel Boost Guidelines).
+
+> **Mobile est à part** : ce n'est **pas** un service du `docker-compose.yml` racine (pas de `make up`/`make rebuild-mobile`). Il a son propre `docker-compose.yml` : `cd GestSIS_Mobile && docker compose up -d` lance un serveur de dev Ionic sur `:8100`. Le build Android (APK/AAB signé) se fait séparément, voir [GestSIS_Mobile/README.md](GestSIS_Mobile/README.md).
 
 ## Lancer les tests
 
@@ -27,6 +30,7 @@ Ce fichier ne fige volontairement **aucune version** (elles dérivent) : la sour
 | Auth    | `docker compose exec auth php artisan test`                             |
 | Alarm   | `docker compose exec alarm uv run manage.py test` (couverture minimale) |
 | APP     | pas de suite de tests — lint : `docker compose exec app yarn lint`      |
+| Mobile  | pas de suite de tests automatisée — lint : `cd GestSIS_Mobile && yarn lint` (compose propre, pas `docker compose exec` racine) |
 
 Astuces pour les services Laravel (API/Auth) — PHPUnit :
 

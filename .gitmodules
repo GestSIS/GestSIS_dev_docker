@@ -16,3 +16,6 @@
 [submodule "GestSIS_Bug"]
 	path = GestSIS_Bug
 	url = git@github.com:GestSIS/GestSIS_Bug.git
+[submodule "GestSIS_Mobile"]
+	path = GestSIS_Mobile
+	url = git@github.com:GestSIS/GestSIS_Mobile.git
