@@ -110,15 +110,16 @@ make clean && make up
 
 | Service       | Commande                                    |
 | ------------- | ------------------------------------------- |
-| GestSIS_API   | `docker compose exec api php artisan test`  |
-| GestSIS_Auth  | `docker compose exec auth php artisan test` |
-| GestSIS_APP   | pas de tests automatisés pour l'instant     |
-| GestSIS_Alarm | pas de tests automatisés pour l'instant     |
+| GestSIS_API    | `docker compose exec api php artisan test`                                  |
+| GestSIS_Auth   | `docker compose exec auth php artisan test`                                 |
+| GestSIS_Alarm  | `docker compose exec alarm uv run manage.py test`                           |
+| GestSIS_APP    | pas de suite de tests — lint : `docker compose exec app yarn lint`          |
+| GestSIS_Mobile | pas de suite de tests automatisée — lint : `cd GestSIS_Mobile && yarn lint` |
 
 ## Conventions
 
 - **PHP (API, Auth) :** PSR-12
-- **Vue.js (APP) :** respecter la config ESLint existante
+- **Vue.js (APP, Mobile) :** respecter la config ESLint existante
 - **Python (Alarm) :** PEP 8
 - **Messages de commit :** sujet court à l'impératif, ex. `Corrige la requête grade sapeur`
 

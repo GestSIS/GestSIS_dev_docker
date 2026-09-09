@@ -46,6 +46,8 @@ Le script d'initialisation va:
 | **Alarm** | http://localhost:8002 | Service d'alarmes Django           |
 | **Doc**   | http://localhost:8081 | Documentation Retype               |
 
+> **Mobile n'est pas dans ce `docker-compose.yml`** : `GestSIS_Mobile` (Ionic Vue) a son propre `docker-compose.yml`. Voir [GestSIS_Mobile/README.md](GestSIS_Mobile/README.md) (dev sur `:8100`).
+
 ### Comptes de test
 Principal:
 - **Email:** admin@gestsis.ch
