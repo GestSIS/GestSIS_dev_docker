@@ -160,11 +160,12 @@ La documentation complète est disponible sur http://localhost:8081 après avoir
 
 ## 🏗️ Architecture technique
 
-- **Frontend:** Vue.js 3.5, Vite, Pinia, Bootstrap 5
-- **Backend API:** Laravel 12, PHP 8.4
-- **Auth:** Laravel 12, JWT avec RSA 4096
-- **Alarm:** Django 5.2, Python 3.11+, DRF
-- **Database:** MySQL 8.1 partagée
+- **Frontend:** Vue.js, Vite, Pinia, Bootstrap
+- **Backend API:** Laravel, PHP
+- **Auth:** Laravel, JWT avec RSA 4096
+- **Alarm:** Django, Python, DRF
+- **Database:** MySQL partagée
+- **KeyValue datastore:** Valkey partagée
 - **Orchestration:** Docker Compose
 
 ---

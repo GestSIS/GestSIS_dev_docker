@@ -36,9 +36,6 @@ services:
     networks:
       - gestsis
     command: sh -c "cd /app/src && yarn install && yarn dev --host --port=8080"
-    # depends_on:
-    #   - api
-    #   - auth
 
   api:
     build:
@@ -118,6 +115,19 @@ services:
       SERVICE_NAME: mysql
     volumes:
       - ./docker-compose/mysql:/docker-entrypoint-initdb.d
+    networks:
+      - gestsis
+
+  valkey:
+    image: valkey/valkey:9-alpine
+    container_name: gestsis-valkey
+    restart: unless-stopped
+    command: valkey-server --save "" --appendonly no
+    healthcheck:
+      test: ["CMD", "valkey-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
     networks:
       - gestsis
 
