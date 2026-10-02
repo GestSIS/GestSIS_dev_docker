@@ -15,6 +15,7 @@ Environnement de développement de GestSIS. Ce dépôt **n'est pas une applicati
 | Doc     | `gestsis-doc`   | `doc`           | 8081 | Retype                         | [GestSIS_Doc/README.md](GestSIS_Doc/README.md)     |
 | Mobile  | `gestsis-mobile`| — (compose propre, voir ci-dessous) | 8100 | Ionic Vue + Capacitor (Android) | [GestSIS_Mobile/AGENTS.md](GestSIS_Mobile/AGENTS.md) |
 | DB      | `gestsis-db`    | `db`            | 3306 | MySQL (partagée)               | —                                                  |
+| Valkey  | `gestsis-valkey`| `valkey`        | 6379 (réseau interne) | Valkey 9 (cache, sans persistance) | —                                  |
 
 Ce fichier ne fige volontairement **aucune version** (elles dérivent) : la source de vérité reste le `composer.json` / `pyproject.toml` / `package.json` de chaque sous-module. **Avant de coder dans un service, lis son `AGENTS.md` (ou son `README.md`)** — ils contiennent les conventions et versions spécifiques (ex. l'API suit les Laravel Boost Guidelines).
 
