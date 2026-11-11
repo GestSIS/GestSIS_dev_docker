@@ -103,6 +103,12 @@ services:
     container_name: gestsis-db
     restart: unless-stopped
     tty: true
+    # Dev/test only: durability traded for speed (no fsync per commit, no binlog, no doublewrite, single shared tablespace)
+    command: >
+      --innodb-flush-log-at-trx-commit=0
+      --skip-log-bin
+      --innodb-doublewrite=OFF
+      --innodb-file-per-table=OFF
     healthcheck:
       test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
       interval: 10s
@@ -115,6 +121,9 @@ services:
       MYSQL_USER: gestsis
       SERVICE_TAGS: dev
       SERVICE_NAME: mysql
+    # Dev/test only: data lives in RAM, wiped on every container restart
+    tmpfs:
+      - /var/lib/mysql:size=2g
     volumes:
       - ./docker-compose/mysql:/docker-entrypoint-initdb.d
     networks:
