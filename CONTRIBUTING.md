@@ -113,8 +113,8 @@ make clean && make up
 | GestSIS_API    | `docker compose exec api php artisan test`                                  |
 | GestSIS_Auth   | `docker compose exec auth php artisan test`                                 |
 | GestSIS_Alarm  | `docker compose exec alarm uv run manage.py test`                           |
-| GestSIS_APP    | pas de suite de tests — lint : `docker compose exec app yarn lint`          |
-| GestSIS_Mobile | pas de suite de tests automatisée — lint : `cd GestSIS_Mobile && yarn lint` |
+| GestSIS_APP    | pas de suite de tests — lint : `docker compose exec app pnpm lint`          |
+| GestSIS_Mobile | pas de suite de tests automatisée — lint : `cd GestSIS_Mobile && pnpm lint` |
 
 ## Conventions
 

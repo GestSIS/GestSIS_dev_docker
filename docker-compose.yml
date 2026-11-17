@@ -13,9 +13,10 @@ services:
     volumes:
       - ./GestSIS_Doc:/app
       - /app/node_modules
+      - pnpm-cache:/pnpm-store
     networks:
       - gestsis
-    command: sh -c "yarn && yarn docs:dev --port 8081 --host 0.0.0.0"
+    command: sh -c "pnpm install --store-dir /pnpm-store && pnpm docs:dev --port 8081 --host 0.0.0.0"
 
   app:
     build:
@@ -31,11 +32,12 @@ services:
     volumes:
       - ./GestSIS_APP:/app
       - /app/node_modules
+      - pnpm-cache:/pnpm-store
     environment:
       - CHOKIDAR_USEPOLLING=true
     networks:
       - gestsis
-    command: sh -c "cd /app/src && yarn install && yarn dev --host --port=8080"
+    command: sh -c "pnpm install --store-dir /pnpm-store && pnpm dev --host --port=8080"
 
   api:
     build:
@@ -146,3 +148,6 @@ networks:
   gestsis:
     name: gestsis
     driver: bridge
+
+volumes:
+  pnpm-cache:

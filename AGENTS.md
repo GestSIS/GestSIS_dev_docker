@@ -2,7 +2,7 @@
 
 Environnement de développement de GestSIS. Ce dépôt **n'est pas une application** : c'est un orchestrateur Docker Compose qui réunit plusieurs services, chacun étant un **sous-module git indépendant** (son propre dépôt sur `github.com/GestSIS/<service>`).
 
-> Règle d'or : **toute commande applicative (tests, artisan, yarn, manage.py) s'exécute DANS le conteneur Docker correspondant**, jamais sur l'hôte. Les dépendances (vendor/, node_modules, .venv) ne sont installées qu'à l'intérieur des images.
+> Règle d'or : **toute commande applicative (tests, artisan, pnpm, manage.py) s'exécute DANS le conteneur Docker correspondant**, jamais sur l'hôte. Les dépendances (vendor/, node_modules, .venv) ne sont installées qu'à l'intérieur des images.
 
 ## Services
 
@@ -30,8 +30,8 @@ Ce fichier ne fige volontairement **aucune version** (elles dérivent) : la sour
 | API     | `docker compose exec api php artisan test`                              |
 | Auth    | `docker compose exec auth php artisan test`                             |
 | Alarm   | `docker compose exec alarm uv run manage.py test` (couverture minimale) |
-| APP     | pas de suite de tests — lint : `docker compose exec app yarn lint`      |
-| Mobile  | pas de suite de tests automatisée — lint : `cd GestSIS_Mobile && yarn lint` (compose propre, pas `docker compose exec` racine) |
+| APP     | pas de suite de tests — lint : `docker compose exec app pnpm lint`      |
+| Mobile  | pas de suite de tests automatisée — lint : `cd GestSIS_Mobile && pnpm lint` (compose propre, pas `docker compose exec` racine) |
 
 Astuces pour les services Laravel (API/Auth) — PHPUnit :
 
@@ -56,7 +56,7 @@ docker compose exec api bash      # ou: auth bash, app sh, alarm sh
 
 # Exécuter une commande ponctuelle
 docker compose exec api php artisan route:list
-docker compose exec app yarn lint
+docker compose exec app pnpm lint
 ```
 
 Rebuild **uniquement** si tu modifies un `Dockerfile` ou les dépendances système :
@@ -88,4 +88,4 @@ make up     # docker compose up
 
 Chaque service est un dépôt séparé. **Une modification de code se commit et se PR dans le dépôt du service** (`GestSIS/<service>`), pas ici — ce dépôt ne suit que des pointeurs de commit vers les sous-modules. Workflow détaillé (fork, rebase sur `upstream/main`, PR ciblée) dans [CONTRIBUTING.md](CONTRIBUTING.md).
 
-Conventions : PHP (API, Auth) → PSR-12 ; Vue (APP) → config ESLint existante (`yarn lint`) ; Python (Alarm) → PEP 8 ; commits → sujet court à l'impératif.
+Conventions : PHP (API, Auth) → PSR-12 ; Vue (APP) → config ESLint existante (`pnpm lint`) ; Python (Alarm) → PEP 8 ; commits → sujet court à l'impératif.
