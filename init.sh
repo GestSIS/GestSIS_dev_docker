@@ -58,6 +58,10 @@ fi
 
 echo "✓ Configuration terminée"
 
+# Store pnpm partagé (volume externe utilisé par GestSIS, GestSIS_Mobile et gestionrta-jura)
+docker volume inspect pnpm-store >/dev/null 2>&1 || docker volume create pnpm-store >/dev/null
+echo "✓ Volume pnpm-store prêt"
+
 echo ""
 echo "✅ Initialisation terminée!"
 echo "Lancez: docker compose up"

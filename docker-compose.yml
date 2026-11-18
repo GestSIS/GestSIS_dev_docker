@@ -150,4 +150,8 @@ networks:
     driver: bridge
 
 volumes:
+  # Store pnpm partagé entre GestSIS et gestionrta-jura (docker volume create pnpm-store).
+  # external : un "docker compose down -v" ne le supprime pas pour les autres projets.
   pnpm-cache:
+    name: pnpm-store
+    external: true

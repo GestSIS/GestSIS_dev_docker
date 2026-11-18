@@ -71,11 +71,13 @@ Cycle de vie courant (voir `Makefile` pour la liste complète) : `make up`, `mak
 ## Premier démarrage
 
 ```bash
-make init   # clone les sous-modules, génère les clés RSA, copie les .env.docker → .env
+make init   # clone les sous-modules, génère les clés RSA, copie les .env.docker → .env, crée le volume pnpm-store
 make up     # docker compose up
 ```
 
 `init.sh` distribue la même paire de clés RSA à Auth (privée + publique), API et Alarm (publique) : Auth signe les JWT, API/Alarm les vérifient. Compte de test : `admin@gestsis.ch` / `apptest`.
+
+Le volume Docker `pnpm-store` est **externe** et partagé (APP, Doc, Mobile, gestionrta-jura) : `docker compose down -v` ne le supprime pas. Le nettoyer de temps en temps : `docker compose exec app pnpm store prune --store-dir /pnpm-store`.
 
 ## Base de données
 
